@@ -16,8 +16,9 @@ public class Client extends User
 	 * @param params
 	 * @roseuid 531619AC0176
 	 */
-	public void privateBoolRequestOrder(int params) 
+	public void privateBoolRequestOrder(String params) 
 	{
+		System.out.println("Placing an order");
 
 	}
 }

@@ -15,8 +15,9 @@ public class Report
    /**
     * @roseuid 53161D35019C
     */
-   public void privateBoolGenerate_report() 
+   public boolean generateReport() 
    {
-    
+	   // Call db function to create report and store it
+	   return true; //if successful
    }
 }

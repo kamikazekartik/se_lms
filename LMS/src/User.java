@@ -1,16 +1,18 @@
+import java.util.Date;
+
 //Source file: D:\\lms\\User.java
 
 
 public class User 
 {
-   private int privateStringUserID;
-   private int privateStringName;
-   private int privateStringAddress;
-   private int privateStringContactNo;
-   private int privateStringPendingFines;
-   private int privateStringMemberTypes;
-   private int privateStringExpiryDate;
-   private int privateStringDateOfBirth;
+   private String userID;
+   private String name;
+   private String address;
+   private String contactNo;
+   private int pendingFines;
+   private String memberType;
+   private Date expiryDate;
+   private Date dateOfBirth;
    
    /**
     * @roseuid 531622850166
@@ -21,20 +23,101 @@ public class User
    }
    
    /**
+    * @param getId
+    * @roseuid 53161A9C00F7
+    */
+   public String getId(){
+	   return this.userID;
+   }
+   
+   public String getName(){
+	   return this.name;
+   }
+   
+   public String getAddress(){
+	   return this.address;
+   }
+   
+   /**
+    * This function return the user object's contact number
+    * @author KamikaZe
+    * @return String
+    */
+   public String getContactNo(){
+	   return this.contactNo;
+   }
+   
+   public int getPendingFines(){
+	   return this.pendingFines;
+   }
+   
+   public String getMemberTypes(){
+	   return this.memberType;
+   }
+   
+   public Date getExpiryDate(){
+	   return this.expiryDate;
+   }
+   
+   public Date getDateOfBirth(){
+	   return this.dateOfBirth;
+   }
+   
+   
+   /**
+    * @param userId
+    * @roseuid 53161AD7028C
+    */
+   public void setId(String userId){
+	   this.userID = userId;
+   }
+   
+   public void setName(String name){
+	   this.name = name;
+   }
+   
+   public void setAddress(String address){
+	   this.address = address;
+   }
+   
+   public void setContactNo(String contactNo){
+	   this.contactNo = contactNo;
+   }
+   
+   public void setPendingFines(int pendingFines){
+	   this.pendingFines = pendingFines;
+   }
+   
+   public void setMemberType(String memberType){
+	   this.memberType = memberType;
+   }
+   
+   public void setExpiryDate(Date expiryDate){
+	   this.expiryDate = expiryDate;
+   }
+   
+   public void setDateOfBirth(Date dateOfBirth){
+	   this.dateOfBirth = dateOfBirth;
+   }
+   
+   /**
     * @param params
     * @roseuid 53161A9B00F7
     */
-   public void privateUserGetUser(int params) 
+   public User getUser(String userId) 
    {
-    
+	   //Call db function to retrieve user
+	   return this;
    }
    
    /**
     * @param user
     * @roseuid 53161ABD015C
     */
-   public void privateBoolSetUser(int user) 
+   public boolean setUser(User user) 
    {
+	   //Call db function to store user
+	   return true; //if successful
     
    }
    

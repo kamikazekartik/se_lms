@@ -1,12 +1,14 @@
+import java.util.Date;
+
 //Source file: D:\\lms\\Transaction.java
 
 
 public class Transaction 
 {
-   private int privateStringTransID;
-   private int privateStringLibID;
-   private int privateStringCliID;
-   private int privateStringTransDate;
+   private String transId;
+   private String libId;
+   private String cliId;
+   private Date transDate;
    
    /**
     * @roseuid 53162285020E
@@ -16,12 +18,47 @@ public class Transaction
     
    }
    
+   public String getTransId(){
+	   return this.transId;
+   }
+   
+   public String getLibId(){
+	   return this.libId;
+   }
+   
+   public String getCliId(){
+	   return this.cliId;
+   }
+   
+   public Date getTransDate(){
+	   return this.transDate;
+   }
+   
+   public void setTransId(String transId){
+	   this.transId = transId;
+   }
+   
+   public void setLibId(String libId){
+	   this.libId = libId;
+   }
+   
+   public void setCliId(String cliId){
+	   this.cliId = cliId;
+   }
+   
+   
+   public void setTransDate(Date transDate){
+	   this.transDate = transDate;
+   }
+   
    /**
     * @param transaction
     * @roseuid 53161D7B011E
     */
-   public void privateBoolCreate_transaction(int transaction) 
+   public boolean createTransaction(String transaction) 
    {
+	   //call db function to store transaction
+	   return true;
     
    }
    
@@ -29,8 +66,9 @@ public class Transaction
     * @param params
     * @roseuid 53161D8B023D
     */
-   public void privateTransactionGet_transaction(int params) 
+   public Transaction getTransaction(String params) 
    {
-    
+	   //db function to get transaction
+	   return this;
    }
 }

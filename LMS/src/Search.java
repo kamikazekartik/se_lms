@@ -1,10 +1,12 @@
+import java.util.List;
+
 //Source file: D:\\lms\\Search.java
 
 
 public class Search 
 {
-   private int privateStringSearchField;
-   private int privateObjectSearchObject;
+   private String searchField;
+   private Search searchObject;
    
    /**
     * @roseuid 531622640234
@@ -13,21 +15,27 @@ public class Search
    {
     
    }
-   
+
+   //TODO: Needs work
    /**
     * @param params
     * @roseuid 53161A260158
     */
-   public void privateListSearchBooks(int params) 
+   public List searchBooks(String params) 
    {
-    
+	   List<String> l1 = null;
+	   l1.add("hello world");
+	   return l1;
+	   
    }
    
+   //TODO: Needs work
    /**
+    * 
     * @param params
     * @roseuid 53161A31030B
     */
-   public void privateListSearchUsers(int params) 
+   public void privateListSearchUsers(String params) 
    {
     
    }
