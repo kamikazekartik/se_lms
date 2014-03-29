@@ -1,4 +1,4 @@
-import java.util.Date;
+import java.sql.Date;
 
 //Source file: D:\\lms\\Transaction.java
 

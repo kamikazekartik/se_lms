@@ -1,9 +1,9 @@
-import java.util.Date;
+import java.sql.Date;
 
-//Source file: D:\\lms\\Book.java
+//Source file: D:\\lms\\Books.java
 
 
-public class Book 
+public class Books 
 {
    private String bookId;
    private String title;
@@ -11,12 +11,13 @@ public class Book
    private String price;
    private Date issueDate;
    private Date dueDate;
+   private int nCopies;
    private boolean available;
    
    /**
     * @roseuid 531622850166
     */
-   public Book() 
+   public Books() 
    {
     
    }
@@ -53,6 +54,10 @@ public class Book
 	   return this.available;
    }
    
+   public int getNumberOfCopies(){
+	   return this.nCopies;
+   }
+   
    public void setBookId(String bookId){
 	   this.bookId = bookId;
    }
@@ -78,15 +83,23 @@ public class Book
 	   this.issueDate = issueDate;
    }
    
-   public void setAvailable(boolean available){
-	   this.available = available;
+   public void setAvailable(){
+	   if(this.nCopies <= 0){
+		   this.available = false;
+	   }else{
+		   this.available = true;
+	   }
+   }
+   
+   public void setNumberOfCopies(int nCopies){
+	   this.nCopies = nCopies;
    }
    
    /**
     * @param params
     * @roseuid 53161A9B00F7
     */
-   public Book getBook(String BookId) 
+   public Books getBook(String BookId) 
    {
 	   //Call db function to retrieve Book
 	   return this;
@@ -96,7 +109,7 @@ public class Book
     * @param Book
     * @roseuid 53161ABD015C
     */
-   public boolean setBook(Book Book) 
+   public boolean setBook(Books Book) 
    {
 	   //Call db function to store Book
 	   return true; //if successful

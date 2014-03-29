@@ -1,7 +1,7 @@
 //Source file: D:\\lms\\HeadLibrarian.java
 
 
-public class HeadLibrarian extends User 
+public class HeadLibrarian extends LibraryStaff 
 {
 	private int headLibrarianFlag;
 
@@ -10,6 +10,7 @@ public class HeadLibrarian extends User
 	 */
 	public HeadLibrarian() 
 	{
+		super();
 
 	}
 

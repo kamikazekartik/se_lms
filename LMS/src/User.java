@@ -1,4 +1,4 @@
-import java.util.Date;
+import java.sql.Date;
 
 //Source file: D:\\lms\\User.java
 
@@ -9,9 +9,6 @@ public class User
    private String name;
    private String address;
    private String contactNo;
-   private int pendingFines;
-   private String memberType;
-   private Date expiryDate;
    private Date dateOfBirth;
    
    /**
@@ -47,17 +44,7 @@ public class User
 	   return this.contactNo;
    }
    
-   public int getPendingFines(){
-	   return this.pendingFines;
-   }
-   
-   public String getMemberTypes(){
-	   return this.memberType;
-   }
-   
-   public Date getExpiryDate(){
-	   return this.expiryDate;
-   }
+  
    
    public Date getDateOfBirth(){
 	   return this.dateOfBirth;
@@ -84,17 +71,6 @@ public class User
 	   this.contactNo = contactNo;
    }
    
-   public void setPendingFines(int pendingFines){
-	   this.pendingFines = pendingFines;
-   }
-   
-   public void setMemberType(String memberType){
-	   this.memberType = memberType;
-   }
-   
-   public void setExpiryDate(Date expiryDate){
-	   this.expiryDate = expiryDate;
-   }
    
    public void setDateOfBirth(Date dateOfBirth){
 	   this.dateOfBirth = dateOfBirth;
