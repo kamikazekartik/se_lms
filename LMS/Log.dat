@@ -95,3 +95,145 @@ Query : select * from library_staff where username='james123' and password='123'
 Query : select * from library_staff where librarian_id='666'
 Query : select * from library_staff where librarian_id='666'
 Query : Select * from books where book_id= '1'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : Select * from books
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : Select * from books where book_id= '007'
+Query : select * from library_staff where librarian_id='666'
+Invalid client details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '007'
+Query : select * from library_staff where librarian_id='666'
+Invalid client details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '007'
+Query : select * from library_staff where librarian_id='666'
+Invalid client details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '007'
+Query : select * from library_staff where librarian_id='666'
+Invalid client details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '007'
+Query : select * from library_staff where librarian_id='666'
+Invalid client details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '007'
+Query : select * from library_staff where librarian_id='666'
+Invalid client details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Invalid client details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Invalid client details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Invalid client details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Invalid client details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Invalid client details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Invalid client details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Book Update failed
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Query : Update books set author='J R R Tolkien' and title='LOTR' and price='1000' and available='NO' and issue_date='30-Mar-2014' and due_date='30-Apr-2014' and borrower_id='007' where book_id=1
+Book Update failed
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Query : Update books set author='J R R Tolkien' , title='LOTR' , price='1000' , available='NO' , issue_date='30-Mar-2014' , due_date='30-Apr-2014' , borrower_id='007' where book_id=1
+Query : Select * from books where book_id= '1'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Book is not available

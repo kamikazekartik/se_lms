@@ -1,5 +1,3 @@
-package lms;
-
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -101,7 +99,12 @@ public class HeadLibrarianSearchGui extends javax.swing.JFrame {
         jButton4.setText("Issue Book");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                try {
+					jButton4ActionPerformed(evt);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
 
@@ -241,7 +244,7 @@ public class HeadLibrarianSearchGui extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) throws Exception {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     	new IssueBookGui().setVisible(true);
     	this.dispose();

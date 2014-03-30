@@ -84,13 +84,14 @@ public class DBHandler
 		if(create){
 			try {
 				String query = "insert into books(author, title, price, issue_date, " +
-						"due_date, available) values(";
+						"due_date, available, borrowe_id) values(";
 				query += "'" + book.getAuthor() + "', ";
 				query += "'" + book.getTitle() + "', ";
 				query += "'" + book.getPrice() + "', ";
 				query += "'" + df.format(book.getIssueDate()) + "', ";
 				query += "'" + df.format(book.getDueDate()) + "', ";
-				query += "'" + book.getAvailable() + "'";
+				query += "'" + book.getAvailable() + "', ";
+				query += "'" + book.getBorrowerId() + "'";
 				query += ")";
 
 				Statement statement = sqlConn.createStatement();
@@ -111,16 +112,17 @@ public class DBHandler
 			try {
 				String query = "Update books set ";
 				query += "author='" + book.getAuthor() + "'" ;
-				query += " and title='" + book.getTitle() + "'";
-				query += " and price='" + book.getPrice() + "'";
-				query += " and available='" + book.getAvailable() + "'";
-				query += " and issue_date='" + df.format(book.getIssueDate()) + "'";
-				query += " and due_date='" + df.format(book.getDueDate()) + "'";
+				query += " , title='" + book.getTitle() + "'";
+				query += " , price='" + book.getPrice() + "'";
+				query += " , available='" + book.getAvailable() + "'";
+				query += " , issue_date='" + df.format(book.getIssueDate()) + "'";
+				query += " , due_date='" + df.format(book.getDueDate()) + "'";
+				query += " , borrower_id='" + book.getBorrowerId() + "'";
 				query += " where book_id=" + book.getId();
-
+				
+				LogWriter.logWrite("Query : " + query);
 				Statement statement = sqlConn.createStatement();
 				statement.executeQuery(query);
-				LogWriter.logWrite("Query : " + query);
 				return true;
 
 
@@ -197,7 +199,7 @@ public class DBHandler
 				query += "'" + client.getPendingFines() + "', ";
 				query += "'" + df.format(client.getExpiryDate()) + "'";
 				query += ")";
-				
+
 				System.out.println(query);
 
 				Statement statement = sqlConn.createStatement();
@@ -295,7 +297,7 @@ public class DBHandler
 
 			Statement statement = sqlConn.createStatement();
 			ResultSet rs = statement.executeQuery(query);
-			
+
 			LogWriter.logWrite("Query : " + query);
 
 			if(rs.next()){
@@ -334,7 +336,7 @@ public class DBHandler
 
 			Statement statement = sqlConn.createStatement();
 			ResultSet rs = statement.executeQuery(query);
-			
+
 			LogWriter.logWrite("Query : " + query);
 
 			if(rs.next()){
@@ -358,6 +360,28 @@ public class DBHandler
 
 		LogWriter.logWrite("Invalid login details were passed");
 		return null; //No such user exists
+	}
+
+	public Books dbGetBookFromResultSet(ResultSet rs){
+		try{
+			if(rs.next()){
+				Books book = new Books();
+				book.setBookId(rs.getString(1));
+				book.setAuthor(rs.getString(2));
+				book.setTitle(rs.getString(3));
+				book.setPrice(rs.getString(4));
+				book.setIssueDate(rs.getDate(5));
+				book.setDueDate(rs.getDate(6));
+				book.setAvailable(rs.getString(7));
+				book.setBorrowerId(rs.getString(8));
+				
+				return book;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return null; //if no such book exists
 	}
 
 	/**

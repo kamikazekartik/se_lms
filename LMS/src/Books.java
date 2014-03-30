@@ -12,6 +12,7 @@ public class Books
    private Date issueDate;
    private Date dueDate;
    private String available;
+   private String borrowerId;
    
    /**
     * @roseuid 531622850166
@@ -53,6 +54,10 @@ public class Books
 	   return this.available;
    }
    
+   public String getBorrowerId(){
+	   return this.borrowerId;
+   }
+   
    
    public void setBookId(String bookId){
 	   this.bookId = bookId;
@@ -81,6 +86,10 @@ public class Books
    
    public void setIssueDate(Date issueDate){
 	   this.issueDate = issueDate;
+   }
+   
+   public void setBorrowerId(String borrowerId){
+	   this.borrowerId = borrowerId;
    }
    
    

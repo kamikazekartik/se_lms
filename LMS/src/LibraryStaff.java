@@ -1,3 +1,6 @@
+import java.sql.Date;
+import java.util.Calendar;
+
 //Source file: D:\\lms\\LibraryStaff.java
 
 
@@ -44,10 +47,44 @@ public class LibraryStaff extends User
 	 * @param params
 	 * @roseuid 53161D8E01DE
 	 */
-	public boolean issueBook(int params) 
+	public boolean issueBook(LibraryStaff ls, Books book, String borrowerId) 
 	{
 		//call some fake function that makes a note in the database
-		return true; //if successful
+		try{
+			DBHandler db = new DBHandler();
+			db.getConnection();
+			Client client = db.dbClientRetrieve(borrowerId);
+			System.out.println(borrowerId);
+			if(client == null){
+				return false; //no such client exists
+			}
+			
+			if(book.getAvailable().equals("YES")){ //if book is available
+				java.util.Date utilDate = new java.util.Date();
+				Date currentDate = new Date(utilDate.getTime());
+				book.setIssueDate(currentDate);
+				
+				Calendar cal = Calendar.getInstance();
+				cal.add(Calendar.MONTH, +1);
+				utilDate = cal.getTime();
+				Date oneMonthLater = new Date(utilDate.getTime());
+				book.setDueDate(oneMonthLater);
+				
+				book.setAvailable("NO");
+				
+				//Set user details
+				book.setBorrowerId(borrowerId);
+				
+				db.dbBookUpdate(book, false);
+				return true;
+			}else{
+				LogWriter.logWrite("Book is not available");
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return false; //if it fails
 
 	}
 

@@ -1,8 +1,6 @@
 import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.text.*;
+import java.util.Calendar;
 
 /**
  * 
@@ -21,6 +19,17 @@ public class lms {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("hello, world");
+		/*java.util.Date utilDate = new java.util.Date();
+		Date d = new Date(utilDate.getTime());
+		System.out.println("Date : " + d);
+		
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.MONTH, +1);
+		utilDate = cal.getTime();
+		Date oneMonthLater = new Date(utilDate.getTime());
+		System.out.println("Date : " + oneMonthLater);
+		
+		System.out.println(oneMonthLater.after(d));*/
 		
 		//Launch main menu
 		DBHandler db = new DBHandler();

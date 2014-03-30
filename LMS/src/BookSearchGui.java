@@ -41,7 +41,7 @@ public class BookSearchGui extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 550));
+        setPreferredSize(new java.awt.Dimension(900, 550));
 
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
