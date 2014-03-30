@@ -41,10 +41,11 @@ public class BookSearchGui extends javax.swing.JFrame {
 		jTextField2 = new javax.swing.JTextField();
 		jTextField3 = new javax.swing.JTextField();
 		jButton1 = new javax.swing.JButton();
+		jButton2 = new javax.swing.JButton();
 		jLabel4 = new javax.swing.JLabel();
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+		setPreferredSize(new java.awt.Dimension(700, 550));
 
 
 		jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -59,7 +60,7 @@ public class BookSearchGui extends javax.swing.JFrame {
 		jButton1.setText("Search");
 
 		jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-		jLabel4.setText("NITK Library");
+		jLabel4.setText("LMS 1.0");
 
 		jButton1.setText("Search");
 		jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +74,8 @@ public class BookSearchGui extends javax.swing.JFrame {
 			}
 		});
 
+		jButton2.setText("Request Order");
+
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
 		layout.setHorizontalGroup(
@@ -81,23 +84,27 @@ public class BookSearchGui extends javax.swing.JFrame {
 						.addGap(30, 30, 30)
 						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 								.addGroup(layout.createSequentialGroup()
-										.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-												.addComponent(jLabel1)
-												.addComponent(jLabel2)
-												.addComponent(jLabel3))
-												.addGap(30, 30, 30)
-												.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-														.addComponent(jTextField1)
-														.addComponent(jTextField2)
-														.addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))
-														.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-														.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-														.addGap(24, 24, 24))
-														.addGroup(layout.createSequentialGroup()
-																.addGap(165, 165, 165)
-																.addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-																.addGap(0, 139, Short.MAX_VALUE))
+										.addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
+										.addGap(24, 24, 24))
+										.addGroup(layout.createSequentialGroup()
+												.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+														.addComponent(jLabel1)
+														.addComponent(jLabel2)
+														.addComponent(jLabel3))
+														.addGap(30, 30, 30)
+														.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+																.addComponent(jTextField2)
+																.addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+																.addComponent(jTextField1))
+																.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+																.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+																		.addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+																		.addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+																		.addGap(52, 52, 52))))
+																		.addGroup(layout.createSequentialGroup()
+																				.addGap(165, 165, 165)
+																				.addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+																				.addGap(0, 0, Short.MAX_VALUE))
 				);
 		layout.setVerticalGroup(
 				layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,7 +119,8 @@ public class BookSearchGui extends javax.swing.JFrame {
 								.addGap(18, 18, 18)
 								.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 										.addComponent(jLabel2)
-										.addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+										.addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+										.addComponent(jButton2))
 										.addGap(18, 18, 18)
 										.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 												.addComponent(jLabel3)
@@ -213,6 +221,7 @@ public class BookSearchGui extends javax.swing.JFrame {
 	}
 	// Variables declaration - do not modify
 	private javax.swing.JButton jButton1;
+	private javax.swing.JButton jButton2;
 	private javax.swing.JLabel jLabel1;
 	private javax.swing.JLabel jLabel2;
 	private javax.swing.JLabel jLabel3;

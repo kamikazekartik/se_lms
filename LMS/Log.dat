@@ -41,3 +41,4 @@ Client Creation failed
 Query : select * from library_staff where librarian_id='dhsadkjsah'
 Invalid login details were passed
 Query : Select * from books
+Query : Select * from books
