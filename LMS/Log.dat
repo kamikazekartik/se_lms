@@ -42,3 +42,56 @@ Query : select * from library_staff where librarian_id='dhsadkjsah'
 Invalid login details were passed
 Query : Select * from books
 Query : Select * from books
+Query : Select * from books
+Query : Select * from books
+Query : Select * from books
+Query : Select * from books where book_id= '1'
+Query : Select * from books where title= 'LOTR'
+Query : Select * from books where book_id= '1'
+Query : Select * from books
+Query : select * from library_staff where username='' and password=''
+Invalid login details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where username='james123' and password='james'
+Invalid login details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : Select * from books where book_id= '1'
+Query : Select * from books where book_id= '1'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where username='james123' and password='132'
+Invalid login details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : Select * from books where book_id= '1'
+Query : Select * from books where book_id= '1'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'

@@ -21,11 +21,21 @@ public class lms {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("hello, world");
-
+		
+		//Launch main menu
 		DBHandler db = new DBHandler();
 		db.getConnection();
+		new LMSMainMenu().setVisible(true);
 		
-		/*Client c = new Client();
+	}
+
+}
+
+//TODO: Get rid of this
+//Old testing code
+/*		DBHandler db = new DBHandler();
+		db.getConnection();
+		Client c = new Client();
 		c.setId("newId");
 		c.setAddress("abc");
 		c.setContactNo("9901");
@@ -36,7 +46,7 @@ public class lms {
 		c.setExpiryDate(Date.valueOf("1982-06-14"));
 		
 		db.dbClientUpdate(c, true);
-		System.out.println("SUCCESS!!!");*/
+		System.out.println("SUCCESS!!!");
 		
 		
 		
@@ -89,12 +99,8 @@ public class lms {
 
 				/*String str = rs.getString(1);
 				System.out.println(str);
-			}*/
+			}
 		}catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-
-	}
-
-}
+		}*/

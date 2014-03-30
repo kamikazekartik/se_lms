@@ -84,12 +84,13 @@ public class DBHandler
 		if(create){
 			try {
 				String query = "insert into books(author, title, price, issue_date, " +
-						"due_date) values(";
+						"due_date, available) values(";
 				query += "'" + book.getAuthor() + "', ";
 				query += "'" + book.getTitle() + "', ";
 				query += "'" + book.getPrice() + "', ";
 				query += "'" + df.format(book.getIssueDate()) + "', ";
-				query += "'" + df.format(book.getDueDate()) + "'";
+				query += "'" + df.format(book.getDueDate()) + "', ";
+				query += "'" + book.getAvailable() + "'";
 				query += ")";
 
 				Statement statement = sqlConn.createStatement();
@@ -112,6 +113,7 @@ public class DBHandler
 				query += "author='" + book.getAuthor() + "'" ;
 				query += " and title='" + book.getTitle() + "'";
 				query += " and price='" + book.getPrice() + "'";
+				query += " and available='" + book.getAvailable() + "'";
 				query += " and issue_date='" + df.format(book.getIssueDate()) + "'";
 				query += " and due_date='" + df.format(book.getDueDate()) + "'";
 				query += " where book_id=" + book.getId();

@@ -11,8 +11,7 @@ public class Books
    private String price;
    private Date issueDate;
    private Date dueDate;
-   private int nCopies;
-   private boolean available;
+   private String available;
    
    /**
     * @roseuid 531622850166
@@ -50,13 +49,10 @@ public class Books
 	   return this.price;
    }
    
-   public boolean getAvailable(){
+   public String getAvailable(){
 	   return this.available;
    }
    
-   public int getNumberOfCopies(){
-	   return this.nCopies;
-   }
    
    public void setBookId(String bookId){
 	   this.bookId = bookId;
@@ -74,6 +70,10 @@ public class Books
 	   this.author = author;
    }
    
+   public void setAvailable(String available){
+	   this.available = available;
+   }
+   
    
    public void setDueDate(Date dueDate){
 	   this.dueDate = dueDate;
@@ -83,17 +83,6 @@ public class Books
 	   this.issueDate = issueDate;
    }
    
-   public void setAvailable(){
-	   if(this.nCopies <= 0){
-		   this.available = false;
-	   }else{
-		   this.available = true;
-	   }
-   }
-   
-   public void setNumberOfCopies(int nCopies){
-	   this.nCopies = nCopies;
-   }
    
    /**
     * @param params

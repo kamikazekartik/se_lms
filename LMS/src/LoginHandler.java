@@ -22,6 +22,12 @@ public class LoginHandler
    public boolean login(String username, String password) 
    {
 	   DBHandler db = new DBHandler();
+	   try {
+		db.getConnection();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	   LibraryStaff ls = db.dbUserRetrieve("", username, password);
 	   if(ls == null){
 		   return false; //could not log in user
