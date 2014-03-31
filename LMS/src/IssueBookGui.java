@@ -1,6 +1,8 @@
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Vector;
 
 import javax.swing.JOptionPane;
@@ -77,7 +79,10 @@ public class IssueBookGui extends javax.swing.JFrame {
 		jLabel5.setText("Welcome");
 
 		jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-		jLabel6.setText("Client");
+		LoginHandler lh = new LoginHandler();
+        DBHandler db = new DBHandler();
+        String username = db.dbUserRetrieve(lh.getCurrentUser(), "", "").getUsername();
+        jLabel6.setText(username);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
@@ -89,7 +94,7 @@ public class IssueBookGui extends javax.swing.JFrame {
 								.addGroup(layout.createSequentialGroup()
 										.addGap(129, 129, 129)
 										.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-												.addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+												.addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
 												.addComponent(jTextField1))
 												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 												.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -184,7 +189,7 @@ public class IssueBookGui extends javax.swing.JFrame {
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 		// TODO add your handling code here:
 		try {
-			new IssueBookGui().setVisible(true);
+			new LibrarianSearchGui().setVisible(true);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -219,7 +224,17 @@ public class IssueBookGui extends javax.swing.JFrame {
 		while (rs.next()) {
 			Vector<Object> vector = new Vector<Object>();
 			for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
-				vector.add(rs.getObject(columnIndex));
+				//TODO: Change this if possible
+				if(columnIndex == 5 || columnIndex == 6){	//Hacky code to make sure date is displayed properly
+					DateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+					if(rs.getDate(columnIndex) != null){
+						vector.add(df.format(rs.getDate(columnIndex)));
+					}else{
+						vector.add(rs.getDate(columnIndex));
+					}					
+				}else{
+					vector.add(rs.getObject(columnIndex));
+				}
 			}
 			data.add(vector);
 		}

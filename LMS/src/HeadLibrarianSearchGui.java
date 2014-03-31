@@ -1,6 +1,8 @@
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Vector;
 
 import javax.swing.table.DefaultTableModel;
@@ -281,7 +283,17 @@ public class HeadLibrarianSearchGui extends javax.swing.JFrame {
 		while (rs.next()) {
 			Vector<Object> vector = new Vector<Object>();
 			for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
-				vector.add(rs.getObject(columnIndex));
+				//TODO: Change this if possible
+				if(columnIndex == 5 || columnIndex == 6){	//Hacky code to make sure date is displayed properly
+					DateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+					if(rs.getDate(columnIndex) != null){
+						vector.add(df.format(rs.getDate(columnIndex)));
+					}else{
+						vector.add(rs.getDate(columnIndex));
+					}					
+				}else{
+					vector.add(rs.getObject(columnIndex));
+				}
 			}
 			data.add(vector);
 		}
