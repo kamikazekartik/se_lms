@@ -1,6 +1,4 @@
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 //Source file: D:\\lms\\LibraryStaff.java
@@ -106,24 +104,31 @@ public class LibraryStaff extends User
 					if(book.getAvailable().equals("NO")){ //if book has indeed been borrowed
 						java.util.Date utilDate = new java.util.Date();
 						Date currentDate = new Date(utilDate.getTime());
-						book.setIssueDate(null);
 						
 						//check if book is past due date
 						if(currentDate.after(book.getDueDate())){
-							System.out.println("Its past due date");
+							//System.out.println("Its past due date");
+							long daysBetween = (currentDate.getTime() - book.getDueDate().getTime()) / (1000 * 60 * 60 * 24);
+							System.out.println(daysBetween);
+							double fine = daysBetween * 0.5; //Fine is 50paise per per day
+							System.out.println(String.valueOf(fine));
+							client.setPendingFines(client.getPendingFines() + fine);
+							db.dbClientUpdate(client, false);
+							return true;
 						}else{
 							System.out.println("Its NOT past due date!!!");
+							//no fines
 						}
 						
-						DateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
-						System.out.println(df.format(currentDate));
 						
-						book.setAvailable("NO");
+						book.setAvailable("YES");
+						book.setIssueDate(null);
+						book.setDueDate(null);
 						
 						//Set user details
-						book.setBorrowerId(borrowerId);
+						book.setBorrowerId(null);
 						
-						//db.dbBookUpdate(book, false);
+						db.dbBookUpdate(book, false);
 						return true;
 					}else{
 						LogWriter.logWrite("Book is not available");

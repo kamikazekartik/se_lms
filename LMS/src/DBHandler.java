@@ -1,7 +1,6 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
@@ -88,8 +87,13 @@ public class DBHandler
 				query += "'" + book.getAuthor() + "', ";
 				query += "'" + book.getTitle() + "', ";
 				query += "'" + book.getPrice() + "', ";
-				query += "'" + df.format(book.getIssueDate()) + "', ";
-				query += "'" + df.format(book.getDueDate()) + "', ";
+				if(book.getIssueDate() != null){
+					query += " , issue_date='" + df.format(book.getIssueDate()) + "'";
+					query += " , due_date='" + df.format(book.getDueDate()) + "'";
+				}else{
+					query += " , issue_date='" + book.getIssueDate() + "'";
+					query += " , due_date='" + book.getDueDate() + "'";
+				}
 				query += "'" + book.getAvailable() + "', ";
 				query += "'" + book.getBorrowerId() + "'";
 				query += ")";
@@ -115,11 +119,21 @@ public class DBHandler
 				query += " , title='" + book.getTitle() + "'";
 				query += " , price='" + book.getPrice() + "'";
 				query += " , available='" + book.getAvailable() + "'";
-				query += " , issue_date='" + df.format(book.getIssueDate()) + "'";
-				query += " , due_date='" + df.format(book.getDueDate()) + "'";
-				query += " , borrower_id='" + book.getBorrowerId() + "'";
-				query += " where book_id=" + book.getId();
+				if(book.getIssueDate() != null){
+					query += " , issue_date='" + df.format(book.getIssueDate()) + "'";
+					query += " , due_date='" + df.format(book.getDueDate()) + "'";
+				}else{
+					query += " , issue_date=NULL";
+					query += " , due_date=NULL";
+				}
 				
+				if(book.getBorrowerId() != null){
+					query += " , borrower_id='" + book.getBorrowerId() + "'";
+				}else{
+					query += " , borrower_id=NULL";
+				}
+				query += " where book_id=" + book.getId();
+
 				LogWriter.logWrite("Query : " + query);
 				Statement statement = sqlConn.createStatement();
 				statement.executeQuery(query);
@@ -197,7 +211,11 @@ public class DBHandler
 				query += "'" + client.getAddress() + "', ";
 				query += "'" + client.getContactNo() + "', ";
 				query += "'" + client.getPendingFines() + "', ";
-				query += "'" + df.format(client.getExpiryDate()) + "'";
+				if(client.getExpiryDate() != null){
+					query += "'" + df.format(client.getExpiryDate()) + "'";
+				}else{
+					query += "NULL";
+				}
 				query += ")";
 
 				System.out.println(query);
@@ -267,7 +285,7 @@ public class DBHandler
 				client.setDateOfBirth(rs.getDate(4));
 				client.setAddress(rs.getString(5));
 				client.setContactNo(rs.getString(6));
-				client.setPendingFines(Integer.parseInt(rs.getString(7)));
+				client.setPendingFines(Double.valueOf((rs.getString(7))));
 				client.setExpiryDate(rs.getDate(8));
 
 				return client;
@@ -374,13 +392,13 @@ public class DBHandler
 				book.setDueDate(rs.getDate(6));
 				book.setAvailable(rs.getString(7));
 				book.setBorrowerId(rs.getString(8));
-				
+
 				return book;
 			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		
+
 		return null; //if no such book exists
 	}
 

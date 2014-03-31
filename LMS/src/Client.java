@@ -6,7 +6,7 @@ import java.sql.Date;
 public class Client extends User 
 {
 
-	private int pendingFines;
+	private double pendingFines;
 	private String memberType;
 	private Date expiryDate;
 
@@ -18,7 +18,7 @@ public class Client extends User
 
 	}
 
-	public int getPendingFines(){
+	public double getPendingFines(){
 		return this.pendingFines;
 	}
 
@@ -30,7 +30,7 @@ public class Client extends User
 		return this.expiryDate;
 	}
 
-	public void setPendingFines(int pendingFines){
+	public void setPendingFines(double pendingFines){
 		this.pendingFines = pendingFines;
 	}
 
