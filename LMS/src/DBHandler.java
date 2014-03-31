@@ -126,7 +126,7 @@ public class DBHandler
 					query += " , issue_date=NULL";
 					query += " , due_date=NULL";
 				}
-				
+
 				if(book.getBorrowerId() != null){
 					query += " , borrower_id='" + book.getBorrowerId() + "'";
 				}else{
@@ -242,8 +242,8 @@ public class DBHandler
 				query += " and address='" + client.getAddress() + "'";
 				query += " and contact_number='" + client.getContactNo() + "', ";
 				query += " and dob='" + df.format(client.getDateOfBirth()) + "'";
-				query += " and pending_fine=" + client.getPendingFines() + "', ";
-				query += " and expiry_date=" + df.format(client.getExpiryDate()) + "' ";
+				query += " and pending_fine='" + client.getPendingFines() + "', ";
+				query += " and expiry_date='" + df.format(client.getExpiryDate()) + "' ";
 				query += " where member_id=" + client.getId();
 
 				Statement statement = sqlConn.createStatement();
@@ -400,6 +400,66 @@ public class DBHandler
 		}
 
 		return null; //if no such book exists
+	}
+
+	/**
+	 * Creates or updates an order based on the value of the boolean create
+	 * @param order
+	 * @param create
+	 * @return
+	 */
+	public boolean dbOrderUpdate(Orders order, boolean create){
+		if(create){
+			try {
+				String query = "insert into orders values(";
+				query += "'" + order.getBookId() + "', ";
+				query += "'" + order.getRequestedBy() + "', ";
+				query += "'" + order.getPlacedBy() + "', ";
+				query += "'" + df.format(order.getRequestDate()) + "', ";
+				query += "'" + df.format(order.getOrderDate()) + "', ";
+				query += order.getNumberOfCopies();
+				query += ")";
+
+				System.out.println(query);
+
+				Statement statement = sqlConn.createStatement();
+				statement.executeQuery(query);
+				LogWriter.logWrite("Query : " + query);
+				return true;
+
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			LogWriter.logWrite("Order Creation failed");
+			return false;	//if it fails
+
+		}else{
+			try {
+				String query = "Update orders set ";
+				query += "requested_by='" + order.getRequestedBy() + "', ";
+				query += " and placed_by='" + order.getPlacedBy() + "', ";
+				query += " and date_of_request='" + df.format(order.getRequestDate()) + "'";
+				query += " and date_of_order='" + df.format(order.getOrderDate()) + "'";
+				query += " and number_of_copies=" + order.getNumberOfCopies();
+				query += " where book_id=" + order.getBookId();
+
+				Statement statement = sqlConn.createStatement();
+				statement.executeQuery(query);
+				LogWriter.logWrite("Query : " + query);
+				return true;
+
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			LogWriter.logWrite("Order Update failed");
+			return false;	//if it fails
+		}
 	}
 
 	/**

@@ -77,7 +77,7 @@ public class LibrarianSearchGui extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("NITK Library");
+        jLabel4.setText("LMS 1.0");
 
         jButton2.setText("Request Order");
         jButton2.addActionListener(new java.awt.event.ActionListener() {

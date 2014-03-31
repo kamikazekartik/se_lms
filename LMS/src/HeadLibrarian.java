@@ -13,12 +13,13 @@ public class HeadLibrarian extends LibraryStaff
 		super();
 
 	}
+	
 
 	/**
 	 * @param params
 	 * @roseuid 53161B8E01DE
 	 */
-	public boolean placeOrder(int params) 
+	public boolean placeOrder(String bookId) 
 	{
 		//call some fake function that makes a note in the database
 		return true; //if successful

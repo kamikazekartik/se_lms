@@ -42,13 +42,4 @@ public class Client extends User
 		this.expiryDate = expiryDate;
 	}
 
-	/**
-	 * @param params
-	 * @roseuid 531619AC0176
-	 */
-	 public void privateBoolRequestOrder(String params) 
-	 {
-		 System.out.println("Placing an order");
-
-	 }
 }

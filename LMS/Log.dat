@@ -381,3 +381,22 @@ Query : Select * from books where book_id= '1'
 Query : select * from library_staff where librarian_id='666'
 Client Creation failed
 Query : insert into member values('RMZ93', 'Mohammad', 'Hacker', '26-Dec-1993', 'Kilpady', '8105201070', '0.0', NULL)
+Query : Select * from books
+Query : Select * from books
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'

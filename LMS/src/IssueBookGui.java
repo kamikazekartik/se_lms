@@ -70,7 +70,7 @@ public class IssueBookGui extends javax.swing.JFrame {
 
 		jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 		jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		jLabel4.setText("NITK Library");
+		jLabel4.setText("LMS 1.0");
 
 		jButton2.setText("Back");
 		jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -194,7 +194,15 @@ public class IssueBookGui extends javax.swing.JFrame {
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 		// TODO add your handling code here:
 		try {
-			new LibrarianSearchGui().setVisible(true);
+			DBHandler db = new DBHandler();
+			db.getConnection();
+			String userId = new LoginHandler().getCurrentUser();
+			LibraryStaff ls = db.dbUserRetrieve(userId, "", "");
+			if(ls.getHeadLibrarianFlag() == 0){ //The back button works differently for head librarian
+				new LibrarianSearchGui().setVisible(true);
+			}else{
+				new HeadLibrarianSearchGui().setVisible(true);
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
