@@ -1,4 +1,5 @@
 import java.sql.Date;
+import java.sql.ResultSet;
 
 //Source file: D:\\lms\\User.java
 
@@ -104,7 +105,7 @@ public class User
 	 */
 	public boolean requestOrder(String bookId, String userId) 
 	{
-		System.out.println("Placing an order");
+		System.out.println("Request an order");
 		try {
 			DBHandler db = new DBHandler();
 			db.getConnection();
@@ -121,8 +122,15 @@ public class User
 			order.setRequestedBy(userId);
 			order.setRequestDate(currentDate);
 
-			db.dbOrderUpdate(order, true);
-			return true; //order was successful
+			//Make sure only single order request per book
+			ResultSet rs = db.dbOrdersRetrieve(bookId, "", "");
+			if(rs.next()){
+				db.dbOrderUpdate(order, false);
+				return true; //order was successful
+			}else{
+				db.dbOrderUpdate(order, true);
+				return true; //order was successful
+			}
 
 
 		} catch (Exception e) {

@@ -41,6 +41,7 @@ public class LoginHandler
 		   return false; //no user currently logged in
 	   }else{
 		   this.userId = null;
+		   new DBHandler().closeConnection();
 		   return true;
 	   }
    }

@@ -124,6 +124,12 @@ public class LibrarianSearchGui extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         LoginHandler lh = new LoginHandler();
         DBHandler db = new DBHandler();
+        try {
+			db.getConnection();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         String username = db.dbUserRetrieve(lh.getCurrentUser(), "", "").getUsername();
         jLabel6.setText(username);
 

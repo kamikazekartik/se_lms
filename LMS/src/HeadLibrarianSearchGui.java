@@ -55,6 +55,7 @@ public class HeadLibrarianSearchGui extends javax.swing.JFrame {
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setPreferredSize(new java.awt.Dimension(1000, 550));
+		
 
 		jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 		jLabel1.setText("Book ID");
@@ -118,10 +119,10 @@ public class HeadLibrarianSearchGui extends javax.swing.JFrame {
 		jLabel5.setText("Welcome");
 
 		jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-		/*LoginHandler lh = new LoginHandler();
+		LoginHandler lh = new LoginHandler();
         DBHandler db = new DBHandler();
         String username = db.dbUserRetrieve(lh.getCurrentUser(), "", "").getUsername();
-        jLabel6.setText(username);*/
+        jLabel6.setText(username);
 
 		jButton6.setText("Place Order");
 

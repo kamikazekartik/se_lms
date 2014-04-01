@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 
 public class DBHandler
 {
-	private static Connection sqlConn; 
+	private static Connection sqlConn = null; 
 	private DateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
 
 	/**
@@ -47,13 +47,15 @@ public class DBHandler
 	}
 
 	/**
+	 * Opens a new connection if old one is closed, else returns the existing connection.
+	 * Basically make sure you have only 1 connection open at a time.
 	 * @throws SQLException 
 	 * @roseuid 53161C7F03C8
 	 */
-	public Connection getConnection() throws Exception //should probably return connection
+	public Connection getConnection() throws Exception 
 	{
 		try{
-			if(sqlConn == null){
+			if(sqlConn == null || sqlConn.isClosed()){
 				openConnection();
 				return sqlConn;
 			}else{
@@ -237,13 +239,13 @@ public class DBHandler
 		}else{
 			try {
 				String query = "Update member set ";
-				query += "name='" + client.getName() + "', ";
-				query += " and member_type='" + client.getMemberType() + "', ";
-				query += " and address='" + client.getAddress() + "'";
-				query += " and contact_number='" + client.getContactNo() + "', ";
-				query += " and dob='" + df.format(client.getDateOfBirth()) + "'";
-				query += " and pending_fine='" + client.getPendingFines() + "', ";
-				query += " and expiry_date='" + df.format(client.getExpiryDate()) + "' ";
+				query += "name='" + client.getName();
+				query += ", member_type='" + client.getMemberType();
+				query += ", address='" + client.getAddress() + "'";
+				query += ", contact_number='" + client.getContactNo();
+				query += ", dob='" + df.format(client.getDateOfBirth());
+				query += ", pending_fine='" + client.getPendingFines();
+				query += ", expiry_date='" + df.format(client.getExpiryDate()) + "' ";
 				query += " where member_id=" + client.getId();
 
 				Statement statement = sqlConn.createStatement();
@@ -425,6 +427,26 @@ public class DBHandler
 
 		return null; //if no such book exists
 	}
+	
+	public Orders dbGetOrderFromResultSet(ResultSet rs){
+		try{
+			if(rs.next()){
+				Orders order = new Orders();
+				order.setBookId(rs.getString(1));
+				order.setRequestedBy(rs.getString(2));
+				order.setPlacedBy(rs.getString(3));
+				order.setRequestDate(rs.getDate(4));
+				order.setOrderDate(rs.getDate(5));
+				order.setNumberOfCopies(rs.getInt(6));
+
+				return order;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+
+		return null; //if no such book exists
+	}
 
 	/**
 	 * Creates or updates an order based on the value of the boolean create
@@ -472,15 +494,20 @@ public class DBHandler
 			try {
 				String query = "Update orders set ";
 				query += "requested_by='" + order.getRequestedBy() + "', ";
-				query += " and placed_by='" + order.getPlacedBy() + "', ";
-				query += " and date_of_request='" + df.format(order.getRequestDate()) + "'";
-				query += " and date_of_order='" + df.format(order.getOrderDate()) + "'";
-				query += " and number_of_copies=" + order.getNumberOfCopies();
+				query += "placed_by='" + order.getPlacedBy() + "'";
+				query += ", date_of_request='" + df.format(order.getRequestDate()) + "'";
+				if(order.getOrderDate() != null){
+					query += ", date_of_order='" + df.format(order.getOrderDate()) + "'";
+				}else{
+					query += ", date_of_order=NULL";
+				}
+				query += ", number_of_copies=" + order.getNumberOfCopies();
 				query += " where book_id=" + order.getBookId();
 
 				Statement statement = sqlConn.createStatement();
-				statement.executeQuery(query);
 				LogWriter.logWrite("Query : " + query);
+				statement.executeQuery(query);
+				
 				return true;
 
 
@@ -550,6 +577,46 @@ public class DBHandler
 				query += " where client_id= '" + clientId + "'";
 			}else if(!clientId.isEmpty() && paramFlag == 1){
 				query += " and client_id= '" + clientId + "'";
+			}
+
+			Statement statement = sqlConn.createStatement();
+			ResultSet rs = statement.executeQuery(query);
+
+			LogWriter.logWrite("Query : " + query);
+
+			return rs;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return null; //if it fails
+
+	}
+	
+	public ResultSet dbOrdersRetrieve(String bookId, String requestedBy, String placedBy) 
+	{
+		int paramFlag = 0; //triggers when either parameter is set
+		try {
+			String query = "Select * from orders";
+
+			if(!bookId.isEmpty()){
+				query += " where book_id= '" + bookId + "'";
+				paramFlag = 1;
+			}
+
+			if(!requestedBy.isEmpty() && paramFlag==0){
+				query += " where requested_by= '" + requestedBy + "'";
+				paramFlag = 1;
+			}else if(!placedBy.isEmpty() && paramFlag == 1){
+				query += " and requested_by= '" + requestedBy + "'";
+			}
+
+			if(!placedBy.isEmpty() && paramFlag == 0){
+				query += " where placed_by= '" + placedBy + "'";
+			}else if(!placedBy.isEmpty() && paramFlag == 1){
+				query += " and placed_by= '" + placedBy + "'";
 			}
 
 			Statement statement = sqlConn.createStatement();
