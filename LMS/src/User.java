@@ -108,14 +108,30 @@ public class User
 		try {
 			DBHandler db = new DBHandler();
 			db.getConnection();
-			
-			
+
+			java.util.Date utilDate = new java.util.Date();
+			Date currentDate = new Date(utilDate.getTime());
+
+			if(bookId.isEmpty() || userId.isEmpty()){
+				LogWriter.logWrite("Order request failed due to insuffecient parameters");
+				return false;
+			}
+			Orders order = new Orders();
+			order.setBookId(bookId);
+			order.setRequestedBy(userId);
+			order.setRequestDate(currentDate);
+
+			db.dbOrderUpdate(order, true);
+			return true; //order was successful
+
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		return true;
+		LogWriter.logWrite("Order request failed");
+		return false; //order request failed
 
 	}
 

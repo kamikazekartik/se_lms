@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Vector;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -232,6 +233,25 @@ public class LibrarianSearchGui extends javax.swing.JFrame {
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
+    	String userId = new LoginHandler().getCurrentUser();
+    	try {
+    		DBHandler db = new DBHandler();
+			db.getConnection();
+			LibraryStaff ls = db.dbUserRetrieve(userId, "", "");
+			String bookId = jTextField1.getText();
+			if(ls.requestOrder(bookId, userId)){
+				JOptionPane.showMessageDialog(null, "Order requested successfully", "LMS", JOptionPane.INFORMATION_MESSAGE);
+				ResultSet rs = db.dbBookRetrieve(bookId, "", "");
+				jTable1 = new javax.swing.JTable(buildTableModel(rs));
+				jScrollPane1.setViewportView(jTable1);
+			}else{
+				JOptionPane.showMessageDialog(null, "Unable to process order request", "LMS", JOptionPane.INFORMATION_MESSAGE);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }                                        
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

@@ -75,6 +75,16 @@ public class LibraryStaff extends User
 				book.setBorrowerId(borrowerId);
 				
 				db.dbBookUpdate(book, false);
+				
+				//Create and store transaction
+				Transaction transaction = new Transaction();
+				transaction.setCliId(borrowerId);
+				transaction.setLibId(ls.getId());
+				transaction.setTransDate(currentDate);
+				transaction.setAction("ISSUE");
+				
+				db.dbTransactionStore(transaction);
+				
 				return true;
 			}else{
 				LogWriter.logWrite("Book is not available");
@@ -129,6 +139,15 @@ public class LibraryStaff extends User
 						book.setBorrowerId(null);
 						
 						db.dbBookUpdate(book, false);
+						
+						//Create and store transaction
+						Transaction transaction = new Transaction();
+						transaction.setCliId(borrowerId);
+						transaction.setLibId(ls.getId());
+						transaction.setTransDate(currentDate);
+						transaction.setAction("RETURN");
+						
+						db.dbTransactionStore(transaction);
 						return true;
 					}else{
 						LogWriter.logWrite("Book is not available");
@@ -137,7 +156,7 @@ public class LibraryStaff extends User
 				}catch(Exception e){
 					e.printStackTrace();
 				}
-				return false; //if it failsl
+				return false; //if it fails
 
 	}
 	

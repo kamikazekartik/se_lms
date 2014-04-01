@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Vector;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -78,6 +79,11 @@ public class BookSearchGui extends javax.swing.JFrame {
         jLabel4.setText("LMS 1.0");
 
         jButton2.setText("Request Order");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Back");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -174,11 +180,34 @@ public class BookSearchGui extends javax.swing.JFrame {
 		jScrollPane1.setViewportView(jTable1);
 
     }//GEN-LAST:event_jButton1ActionPerformed
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed    	
+    	try {
+    		DBHandler db = new DBHandler();
+			db.getConnection();
+			Client client = new Client();
+			String bookId = jTextField1.getText();
+			if(client.requestOrder(bookId, "Client")){
+				JOptionPane.showMessageDialog(null, "Order requested successfully", "LMS", JOptionPane.INFORMATION_MESSAGE);
+				ResultSet rs = db.dbBookRetrieve(bookId, "", "");
+				jTable1 = new javax.swing.JTable(buildTableModel(rs));
+				jScrollPane1.setViewportView(jTable1);
+			}else{
+				JOptionPane.showMessageDialog(null, "Unable to process order request", "LMS", JOptionPane.INFORMATION_MESSAGE);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         new LMSMainMenu().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+    
+    
     
 	/**
 	 * API that sets the jTable model with the result set that we pass to it. Meant for 

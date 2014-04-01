@@ -302,6 +302,30 @@ public class DBHandler
 
 	}
 
+	/**
+	 * @param params
+	 * @roseuid 53191CD70223
+	 */
+	public ResultSet dbClientTableRetrieve(String userId) 
+	{
+		try {
+			String query = "select * from member where member_id='";
+			query += userId + "'";
+
+			Statement statement = sqlConn.createStatement();
+			ResultSet rs = statement.executeQuery(query);
+
+			return rs;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null; //if it fails
+
+	}
+
 	public LibraryStaff dbUserRetrieve(String userId, String username, String password){
 		try {
 			String query = "select * from library_staff";
@@ -412,11 +436,19 @@ public class DBHandler
 		if(create){
 			try {
 				String query = "insert into orders values(";
-				query += "'" + order.getBookId() + "', ";
+				query += order.getBookId() + ", ";
 				query += "'" + order.getRequestedBy() + "', ";
-				query += "'" + order.getPlacedBy() + "', ";
+				if(order.getPlacedBy() != null){
+					query += "'" + order.getPlacedBy() + "', ";
+				}else{
+					query += "NULL, ";
+				}
 				query += "'" + df.format(order.getRequestDate()) + "', ";
-				query += "'" + df.format(order.getOrderDate()) + "', ";
+				if(order.getOrderDate() != null){
+					query += "'" + df.format(order.getOrderDate()) + "', ";
+				}else{
+					query += "NULL, ";
+				}
 				query += order.getNumberOfCopies();
 				query += ")";
 
@@ -466,18 +498,73 @@ public class DBHandler
 	 * @param params
 	 * @roseuid 53161CE6020B
 	 */
-	public boolean dbTransactionStore(String params) 
+	public boolean dbTransactionStore(Transaction transaction) 
 	{
-		return true; //if successful
+		DBHandler db = new DBHandler();
+		try {
+			db.getConnection();
+			String query = "insert into transactions(librarian_id, client_id, trans_date" +
+					", action) values(";
+			query += "'" + transaction.getCliId() + "', ";
+			query += "'" + transaction.getLibId() + "', ";
+			query += "'" + df.format(transaction.getTransDate()) + "', ";
+			query += "'" + transaction.getAction() + "'";
+			query += ")";
+
+			Statement statement = sqlConn.createStatement();
+			LogWriter.logWrite("Query : " + query);
+			statement.executeQuery(query);
+			return true;			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false; //if it fails
 	}
 
 	/**
 	 * @param params
 	 * @roseuid 53161CF90259
 	 */
-	public boolean dbTransactionRetrieve(String params) 
+	public ResultSet dbTransactionRetrieve(String transId, String librarianId, String clientId) 
 	{
-		return true; //if successful
+		int paramFlag = 0; //triggers when either parameter is set
+		try {
+			String query = "Select * from transactions";
+
+			if(!transId.isEmpty()){
+				query += " where trans_id= '" + transId + "'";
+				paramFlag = 1;
+			}
+
+			if(!librarianId.isEmpty() && paramFlag==0){
+				query += " where librarian_id= '" + librarianId + "'";
+				paramFlag = 1;
+			}else if(!clientId.isEmpty() && paramFlag == 1){
+				query += " and librarian_id= '" + librarianId + "'";
+			}
+
+			if(!clientId.isEmpty() && paramFlag == 0){
+				query += " where client_id= '" + clientId + "'";
+			}else if(!clientId.isEmpty() && paramFlag == 1){
+				query += " and client_id= '" + clientId + "'";
+			}
+
+			Statement statement = sqlConn.createStatement();
+			ResultSet rs = statement.executeQuery(query);
+
+			LogWriter.logWrite("Query : " + query);
+
+			return rs;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return null; //if it fails
 
 	}
 }

@@ -28,6 +28,10 @@ public class Orders
 	public String getBookId(){
 		return this.bookId;
 	}
+	
+	public void setBookId(String bookId){
+		this.bookId = bookId;
+	}
 
 	/**
 	 * @return the requestedBy
@@ -97,29 +101,6 @@ public class Orders
 	 */
 	public void setNumberOfCopies(int numberOfCopies) {
 		this.numberOfCopies = numberOfCopies;
-	}
-
-
-
-	/**
-	 * @param params
-	 * @roseuid 53161A9B00F7
-	 */
-	public Orders getBook(String BookId) 
-	{
-		//Call db function to retrieve Book
-		return this;
-	}
-
-	/**
-	 * @param Book
-	 * @roseuid 53161ABD015C
-	 */
-	public boolean setBook(Orders Book) 
-	{
-		//Call db function to store Book
-		return true; //if successful
-
 	}
 
 	/**

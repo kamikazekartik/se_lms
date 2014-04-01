@@ -9,6 +9,7 @@ public class Transaction
    private String libId;
    private String cliId;
    private Date transDate;
+   private String action; //book return or issue
    
    /**
     * @roseuid 53162285020E
@@ -52,6 +53,20 @@ public class Transaction
    }
    
    /**
+ * @return the action
+ */
+public String getAction() {
+	return action;
+}
+
+/**
+ * @param action the action to set
+ */
+public void setAction(String action) {
+	this.action = action;
+}
+
+/**
     * @param transaction
     * @roseuid 53161D7B011E
     */

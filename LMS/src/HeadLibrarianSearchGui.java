@@ -238,33 +238,24 @@ public class HeadLibrarianSearchGui extends javax.swing.JFrame {
 
 	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
 		// TODO TODO add your handling code here:
-		DBHandler db = new DBHandler();
-		try {
+		String userId = new LoginHandler().getCurrentUser();
+    	try {
+    		DBHandler db = new DBHandler();
 			db.getConnection();
+			HeadLibrarian hl = db.dbHeadLibrarianRetrieve(userId, "", "");
+			String bookId = jTextField1.getText();
+			if(hl.requestOrder(bookId, userId)){
+				JOptionPane.showMessageDialog(null, "Order requested successfully", "LMS", JOptionPane.INFORMATION_MESSAGE);
+				ResultSet rs = db.dbBookRetrieve(bookId, "", "");
+				jTable1 = new javax.swing.JTable(buildTableModel(rs));
+				jScrollPane1.setViewportView(jTable1);
+			}else{
+				JOptionPane.showMessageDialog(null, "Unable to process order request", "LMS", JOptionPane.INFORMATION_MESSAGE);
+			}
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		ResultSet rs;
-
-		String bookId = jTextField1.getText(); 
-
-		if(bookId.isEmpty()){
-			JOptionPane.showMessageDialog(null, "You must fill in Book Id to request order", "LMS", JOptionPane.INFORMATION_MESSAGE);
-		}else{
-			String userId = new LoginHandler().getCurrentUser();
-			HeadLibrarian hl = db.dbHeadLibrarianRetrieve(userId, "", "");
-			
-			
-			
-			rs = db.dbBookRetrieve(bookId, "", "");
-			try {
-				jTable1 = new javax.swing.JTable(buildTableModel(rs));
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			jScrollPane1.setViewportView(jTable1);
 		}
 	}                                        
 
