@@ -144,3 +144,114 @@ Query : select * from library_staff where librarian_id='666'
 Query : Select * from orders where book_id= '1'
 Query : Update orders set requested_by='666', placed_by='null', date_of_request='01-Apr-2014', date_of_order=NULL, number_of_copies=0 where book_id=1
 Query : Select * from books where book_id= '1'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where username='jeremyhead' and password='123'
+Query : select * from library_staff where librarian_id='head'
+Query : select * from library_staff where librarian_id='head'
+Query : Select * from orders
+Query : select * from library_staff where librarian_id='head'
+Query : Select * from orders
+Query : select * from library_staff where librarian_id='head'
+Query : Select * from orders
+Query : select * from library_staff where username='jeremyhead' and password='123'
+Query : select * from library_staff where librarian_id='head'
+Query : select * from library_staff where librarian_id='head'
+Query : Select * from orders
+Query : select * from library_staff where librarian_id='head'
+Query : select * from library_staff where librarian_id='head'
+Query : Select * from orders
+Query : select * from library_staff where librarian_id='head'
+Query : Select * from orders
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Unable to create sql connection
+Unable to create sql connection
+Unable to create sql connection
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where username='jeremyhead' and password='123'
+Query : select * from library_staff where librarian_id='head'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='head'
+Query : select * from library_staff where librarian_id='head'
+Query : select * from library_staff where librarian_id='head'
+Query : select * from library_staff where librarian_id='head'
+Query : select * from library_staff where librarian_id='head'
+Query : Select * from orders
+Query : select * from library_staff where librarian_id='head'
+Query : select * from library_staff where librarian_id='head'
+Query : select * from library_staff where username='jeremyhead' and password='123'
+Query : select * from library_staff where librarian_id='head'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='head'
+Query : select * from library_staff where librarian_id='head'
+Query : select * from library_staff where librarian_id='head'
+Query : Select * from orders
+Query : Select * from orders
+Query : Select * from orders where book_id= '1'
+Query : Update orders set requested_by='666', placed_by='null', date_of_request='01-Apr-2014', date_of_order=NULL, number_of_copies=10 where book_id=1
+Query : select * from library_staff where librarian_id='head'
+Query : Select * from orders
+Query : select * from library_staff where username='jeremyhead' and password='123'
+Query : select * from library_staff where librarian_id='head'
+Query : select * from library_staff where librarian_id='head'
+Query : select * from library_staff where librarian_id='head'
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Order request failed due to insuffecient parameters
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from orders where book_id= '1'
+Query : Update orders set requested_by='666', placed_by='null', date_of_request='03-Apr-2014', date_of_order=NULL, number_of_copies=0 where book_id=1
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'

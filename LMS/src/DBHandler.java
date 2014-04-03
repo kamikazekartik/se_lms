@@ -311,8 +311,10 @@ public class DBHandler
 	public ResultSet dbClientTableRetrieve(String userId) 
 	{
 		try {
-			String query = "select * from member where member_id='";
-			query += userId + "'";
+			String query = "select * from member";
+			if(!userId.isEmpty()){
+				query += " where member_id='" + userId + "'";
+			}
 
 			Statement statement = sqlConn.createStatement();
 			ResultSet rs = statement.executeQuery(query);
@@ -323,7 +325,7 @@ public class DBHandler
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return null; //if it fails
 
 	}
@@ -427,7 +429,7 @@ public class DBHandler
 
 		return null; //if no such book exists
 	}
-	
+
 	public Orders dbGetOrderFromResultSet(ResultSet rs){
 		try{
 			if(rs.next()){
@@ -507,7 +509,7 @@ public class DBHandler
 				Statement statement = sqlConn.createStatement();
 				LogWriter.logWrite("Query : " + query);
 				statement.executeQuery(query);
-				
+
 				return true;
 
 
@@ -542,12 +544,12 @@ public class DBHandler
 			LogWriter.logWrite("Query : " + query);
 			statement.executeQuery(query);
 			return true;			
-			
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return false; //if it fails
 	}
 
@@ -594,7 +596,7 @@ public class DBHandler
 		return null; //if it fails
 
 	}
-	
+
 	public ResultSet dbOrdersRetrieve(String bookId, String requestedBy, String placedBy) 
 	{
 		int paramFlag = 0; //triggers when either parameter is set
