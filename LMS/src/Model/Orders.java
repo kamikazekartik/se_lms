@@ -1,3 +1,4 @@
+package Model;
 import java.sql.Date;
 
 //Source file: D:\\lms\\Orders.java
@@ -101,15 +102,6 @@ public class Orders
 	 */
 	public void setNumberOfCopies(int numberOfCopies) {
 		this.numberOfCopies = numberOfCopies;
-	}
-
-	/**
-	 * @param params
-	 * @roseuid 53161AD6028C
-	 */
-	public void privateListSearchOrders(int params) 
-	{
-
 	}
 
 

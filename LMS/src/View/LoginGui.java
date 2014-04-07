@@ -1,4 +1,9 @@
+package View;
+
 import javax.swing.JOptionPane;
+
+import Controller.DBHandler;
+import Controller.LoginHandler;
 
 /**
  *

@@ -1,5 +1,10 @@
+package Model;
+
 import java.sql.Date;
 import java.sql.ResultSet;
+
+import Controller.DBHandler;
+import Controller.LogWriter;
 
 //Source file: D:\\lms\\User.java
 

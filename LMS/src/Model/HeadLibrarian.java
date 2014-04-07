@@ -1,12 +1,15 @@
+package Model;
 import java.sql.Date;
 import java.sql.ResultSet;
+
+import Controller.DBHandler;
+import Controller.LogWriter;
 
 //Source file: D:\\lms\\HeadLibrarian.java
 
 
 public class HeadLibrarian extends LibraryStaff 
 {
-	private int headLibrarianFlag;
 
 	/**
 	 * @roseuid 53162285005D

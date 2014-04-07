@@ -1,4 +1,9 @@
+package View;
+
 import java.sql.Date;
+
+import Controller.DBHandler;
+import Model.Client;
 
 /**
  *

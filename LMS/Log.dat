@@ -255,3 +255,42 @@ Query : select * from library_staff where librarian_id='666'
 Query : select * from library_staff where librarian_id='666'
 Query : select * from library_staff where librarian_id='666'
 Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Order request failed due to insuffecient parameters
+Query : Select * from books
+Query : select * from library_staff where username='james123' and password='1234'
+Invalid login details were passed
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Query : Update books set author='J R R Tolkien' , title='LOTR' , price='1000' , available='NO' , issue_date='07-Apr-2014' , due_date='07-May-2014' , borrower_id='007' where book_id=1
+Query : insert into transactions(librarian_id, client_id, trans_date, action) values('007', '666', '07-Apr-2014', 'ISSUE')
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Query : Update books set author='J R R Tolkien' , title='LOTR' , price='1000' , available='YES' , issue_date=NULL , due_date=NULL , borrower_id=NULL where book_id=1
+Query : insert into transactions(librarian_id, client_id, trans_date, action) values('007', '666', '07-Apr-2014', 'RETURN')
+Query : Select * from books where book_id= '1'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where username='jeremyhead' and password='123'
+Query : select * from library_staff where librarian_id='head'
+Query : Select * from books
+Query : select * from library_staff where librarian_id='head'
+Query : Select * from orders
+Query : select * from library_staff where librarian_id='head'
+Query : Select * from orders
+Query : select * from library_staff where username='james123' and password='123'
+Query : select * from library_staff where librarian_id='666'
+Query : select * from library_staff where librarian_id='666'
+Query : Select * from books

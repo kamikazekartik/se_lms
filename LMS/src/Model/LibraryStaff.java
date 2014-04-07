@@ -1,5 +1,10 @@
+package Model;
+
 import java.sql.Date;
 import java.util.Calendar;
+
+import Controller.DBHandler;
+import Controller.LogWriter;
 
 //Source file: D:\\lms\\LibraryStaff.java
 

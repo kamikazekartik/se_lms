@@ -1,3 +1,4 @@
+package Controller;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -5,6 +6,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+
+import Model.Books;
+import Model.Client;
+import Model.HeadLibrarian;
+import Model.LibraryStaff;
+import Model.Orders;
+import Model.Transaction;
 
 //Source file: D:\\lms\\DBHandler.java
 

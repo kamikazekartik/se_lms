@@ -1,3 +1,5 @@
+package View;
+
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -7,6 +9,11 @@ import java.util.Vector;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
+import Controller.DBHandler;
+import Controller.LoginHandler;
+import Model.Books;
+import Model.LibraryStaff;
 
 /**
  *
